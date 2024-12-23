@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd
+																																											  http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="5.0">
+	<servlet>
+		<description></description>
+		<display-name>FrontController</display-name>
+		<servlet-name>FrontController</servlet-name>
+		<servlet-class>com.curso.servlets.FrontController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FrontController</servlet-name>
+		<url-pattern>/FrontController</url-pattern>
+	</servlet-mapping>
+	<display-name>gestorProductos</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+	<resource-ref>
+		<description>Base de datos MySQL</description>
+		<res-ref-name>jdbc/MiDataSource</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+	</resource-ref>
+	<servlet>
+		<description></description>
+		<display-name>ModificarProductoServlet</display-name>
+		<servlet-name>ModificarProductoServlet</servlet-name>
+		<servlet-class>com.curso.servlets.ModificarProductoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ModificarProductoServlet</servlet-name>
+		<url-pattern>/ModificarProductoServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>EliminarFormServlet</display-name>
+		<servlet-name>EliminarFormServlet</servlet-name>
+		<servlet-class>com.curso.servlets.EliminarFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EliminarFormServlet</servlet-name>
+		<url-pattern>/EliminarFormServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>NuevoProductoServlet</display-name>
+		<servlet-name>NuevoProductoServlet</servlet-name>
+		<servlet-class>com.curso.servlets.NuevoProductoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>NuevoProductoServlet</servlet-name>
+		<url-pattern>/NuevoProductoServlet</url-pattern>
+	</servlet-mapping>
+</web-app>
