@@ -9,7 +9,7 @@
 Producto p = null;
 try {
 	//	Long id = Long.valueOf(request.getParameter("id"));
-	Long id = (Long) request.getAttribute("idProducto");
+	Long id = (Long)request.getAttribute("idProducto");
 	p = ProductoService.obtenerProductoById(id);
 
 } catch (Exception e) {

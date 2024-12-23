@@ -23,7 +23,7 @@ public class FrontController extends HttpServlet {
 		switch (opcion) {
 		case "modificar":
 			Long id = Long.valueOf(request.getParameter("id"));
-			// Llammaos a modificar.FOrm para modificar
+			// Llamamos a modificar.FOrm para modificar
 			request.setAttribute("idProducto", id);
 			request.getRequestDispatcher("modificarForm.jsp").forward(request, response);
 

@@ -56,10 +56,10 @@ public class ProductoService {
 		try {
 			Connection con = ds.getDs().getConnection();
 			if (con != null) {
-				String query = "SELECT * FROM productos WHERE id = ?";
-				try (PreparedStatement ps = con.prepareStatement(null)) {
+				String query = "SELECT * FROM productos WHERE id=?";
+				try (PreparedStatement ps = con.prepareStatement(query)) {
 					ps.setLong(1, id);
-					ResultSet rs = ps.executeQuery(query);
+					ResultSet rs = ps.executeQuery();
 					if (rs.next()) {
 						p = new Producto(rs.getLong(1), rs.getString(2), Cat.valueOf(rs.getString(3)), rs.getDouble(4),
 								rs.getInt(5));
