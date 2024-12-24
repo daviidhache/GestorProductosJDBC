@@ -1,6 +1,7 @@
 package com.curso.servlets;
 
 import java.io.IOException;
+import java.util.Random;
 
 import com.curso.model.Pedido;
 import com.curso.model.Producto;
@@ -37,10 +38,26 @@ public class NuevoProductoServlet extends HttpServlet {
 			}
 		}
 	}
-
+/**
+ * Método que genera una REF nueva . Fuente -> StackOverFlow
+ * @return String ref
+ */
 	private String generarRef() {
-		// TODO Auto-generated method stub
-		return null;
+		   Random rand = new Random();
+	        
+	        // Generar tres caracteres aleatorios de la A-Z
+	        StringBuilder caracteres = new StringBuilder();
+	        for (int i = 0; i < 3; i++) {
+	            char letra = (char) ('A' + rand.nextInt(26)); // Genera una letra aleatoria de la A-Z
+	            caracteres.append(letra);
+	        }
+	        
+	        // Generar dos números aleatorios
+	        int numero1 = rand.nextInt(10); // Número entre 0 y 9
+	        int numero2 = rand.nextInt(10); // Número entre 0 y 9
+	        
+	        // Combinar los caracteres y los números con un guion
+	        return caracteres.toString() + "-" + numero1 + numero2;
 	}
 
 }

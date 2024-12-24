@@ -153,7 +153,6 @@
 							<td>Producto</td>
 							<td>Unidades</td>
 							<td>Fecha y hora</td>
-							<td>Acción</td>
 						</tr>
 					</thead>
 					<%
@@ -164,9 +163,7 @@
 						<td><%=pe.getProducto().getNombre()%></td>
 						<td><%=pe.getUnidades()%></td>
 						<td><%=pe.getFechayHora().toString()%></td>
-						<td><a class="btn btn-info"
-							href="FrontControler?opcion=pedido&id=<%=pe.getRef()%>">Detalle
-								pedido</a></td>
+						
 					</tr>
 					<%
 					}

@@ -33,7 +33,7 @@ public class ModificarProductoServlet extends HttpServlet {
 			int stockP = Integer.valueOf(stock);
 			if (stockP > 0 && precioP > 0) {
 				// Procedemos a modificar
-				Cat cate = Cat.valueOf(cat.toUpperCase());
+				// Cat cate = Cat.valueOf(cat.toUpperCase());
 				Long idP = Long.valueOf(idProducto);
 				System.out.println("Id producto" + idP);
 				Producto pro = ProductoService.obtenerProductoById(idP);

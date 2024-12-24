@@ -7,6 +7,7 @@ import javax.sql.DataSource;
 public class Properties {
 	private DataSource ds;
 
+	
 	public Properties() {
 		try {
 			Context initContext = new InitialContext();

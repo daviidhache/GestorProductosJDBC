@@ -20,6 +20,16 @@ public final class Pedido {
 		this.producto = producto;
 		this.unidades = unidades;
 	}
+	
+
+	public Pedido(String ref, Producto producto, int unidades, LocalDateTime fechayHora) {
+		super();
+		this.ref = ref;
+		this.producto = producto;
+		this.unidades = unidades;
+		this.fechayHora = fechayHora;
+	}
+
 
 	public String getRef() {
 		return ref;

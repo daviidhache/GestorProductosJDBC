@@ -82,7 +82,7 @@ public class ProductoService {
 			Connection con = ds.getDs().getConnection();
 			if (con != null) {
 				String query = "UPDATE productos SET nombre = ?, cat = ?, precio = ?, stock = ? WHERE id = ?";
-				try (PreparedStatement ps = con.prepareStatement(null)) {
+				try (PreparedStatement ps = con.prepareStatement(query)) {
 					ps.setString(1, nombre);
 					ps.setString(2, cat);
 					ps.setDouble(3, Double.parseDouble(precio));
