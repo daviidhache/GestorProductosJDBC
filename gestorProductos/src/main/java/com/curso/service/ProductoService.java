@@ -102,4 +102,34 @@ public class ProductoService {
 		}
 	}
 
+	/**
+	 * Sin integridad referencial-> Se podrá borra un producto asociado a un pedido
+	 * Método que permite borrar un producto
+	 * 
+	 * @param id
+	 * @return int salida
+	 */
+	public static void borrarProducto(Long id) {
+		
+		try {
+			Connection con = ds.getDs().getConnection();
+			if (con != null) {
+				String query = "DELETE FROM productos WHERE id = ?";
+				try (PreparedStatement ps = con.prepareStatement(query)) {
+					ps.setLong(1, id);
+					 ps.executeUpdate();
+					
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
 }

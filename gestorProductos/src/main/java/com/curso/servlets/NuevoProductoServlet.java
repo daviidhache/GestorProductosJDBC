@@ -32,8 +32,11 @@ public class NuevoProductoServlet extends HttpServlet {
 				// Existe. Comprobamos si las unidades seleccionadas no exceden de las disponibles
 				if(p.getStock() >= uds ) {
 						//Modificamos stock y realizamos el pedido.
-						p.setStock(p.getStock() - uds);
+						
 						PedidoService.nuevoPedido(new Pedido(generarRef(),p, uds));
+						// No funciona con dispacher!
+						response.sendRedirect("index.jsp");
+						
 				}
 			}
 		}

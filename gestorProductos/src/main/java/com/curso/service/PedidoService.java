@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
@@ -60,21 +61,27 @@ public class PedidoService {
 		try {
 			con = p.getDs().getConnection();
 			if(con != null) {
-				String query = "UPDATE productos set stock= (stock - ?) WHERE id=?";
+				String query = "UPDATE productos set stock= stock - ? WHERE id=?";
 				String query2 = "INSERT INTO pedidos values(?,?,?,?)";
 
 				try(PreparedStatement st = con.prepareStatement(query)){
 					// Iniciamos transacción
 					con.setAutoCommit(false);
-					st.setInt(1, pe.getProducto().getStock());
+					st.setInt(1,pe.getUnidades());
 					st.setLong(2, pe.getProducto().getId());
 					if(st.executeUpdate() > 0) {
 						PreparedStatement st2 = con.prepareStatement(query2);
-						st.setString(1, pe.getRef());
-						st.setLong(2, pe.getProducto().getId());
-						st.setInt(3,pe.getUnidades() );
-					//	st.setDate(4, java.sql.Date new Date().getTime());
-						//Por implementar
+						st2.setString(1, pe.getRef());
+						st2.setLong(2, pe.getProducto().getId());
+						st2.setInt(3,pe.getUnidades() );
+					st2.setTimestamp(4, Timestamp.valueOf(LocalDateTime.now()));
+						if(st2.executeUpdate() > 0) {
+							con.commit();
+						}else {
+							con.rollback();
+						}
+						
+						
 					}else {
 						con.rollback();
 					}
@@ -83,7 +90,12 @@ public class PedidoService {
 				}
 			}
 		} catch (SQLException e) {
-			
+			try {
+				con.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 	}
 

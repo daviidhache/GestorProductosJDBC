@@ -2,7 +2,6 @@ package com.curso.servlets;
 
 import java.io.IOException;
 
-import com.curso.model.Producto;
 import com.curso.service.ProductoService;
 
 import jakarta.servlet.ServletException;
@@ -21,8 +20,7 @@ public class EliminarFormServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 			Long idP = (Long) req.getAttribute("idProducto");
-			Producto eliminar = ProductoService.obtenerProductoById(idP);
-			ProductoService.getProductos().remove(eliminar);
+			ProductoService.borrarProducto(idP);
 			req.getRequestDispatcher("index.jsp").forward(req, resp);
 		} catch (Exception e) {
 
