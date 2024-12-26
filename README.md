@@ -4,7 +4,7 @@
 #### -com.curso.conf -> Configuración de JDBC mediante DataSource
 #### -com.curso.enums -> Clase enum categoría
 #### -com.curso.model -> Clases pedido y producto
-####-com.curso.servelets:
+#### -com.curso.servelets:
   #### -FrontController -> Dirige la acción principal y deriva a otros servelets (...)
 ### Vistas:
   #### -index.jsp -> Página principal de gestión de productos y pedidos
